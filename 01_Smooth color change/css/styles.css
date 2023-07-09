@@ -3,14 +3,53 @@
   src: local(Alice), url(../fonts/Alice-Regular.ttf);
 }
 
-h1 {
-  transition: color 1s ease;
-  font-family: Alice;
+html {
+  height: 100%;
+}
+
+body {
   text-align: center;
-  font-size: 15vw;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f4d4e8, #c5e7e2, #f7f0cf);
+}
+
+h1 {
+  transition: color 10s ease;
+  font-family: Alice;
+  font-size: 5vw;
+
+  background: linear-gradient(45deg, #e896a3, #201e1e, #201e1e, #e896a3);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: #201e1e;
+
+  background-size: 300% 300%;
+
+  animation: textShine 5s ease-in-out infinite alternate;
 }
 
 button {
   font-family: Alice;
-  align-items: center;
+  font-size: 20px;
+  padding: 10px 20px;
+  background-color: #201e1e;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+@keyframes textShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }

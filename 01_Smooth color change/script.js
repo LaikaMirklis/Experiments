@@ -1,27 +1,22 @@
-// let inputText = prompt("Введіть текст");
-// document.getElementById("input-text").innerHTML = inputText;
+let inputText = prompt("Введіть текст");
+document.getElementById("input-text").innerHTML = inputText;
 
-let count = 0;
 let col;
-let intervalID;
+
 function changeColor() {
-  if (document.getElementById("input-text").style.color == "black") {
-    col = "#f48226";
+  const inputText = document.getElementById("input-text");
+  const computedStyle = window.getComputedStyle(inputText);
+  const textColor = computedStyle.getPropertyValue("-webkit-text-fill-color");
+
+  if (textColor === "rgb(32, 30, 30)") {
+    col = "transparent";
   } else {
-    col = "black";
+    col = "#201e1e";
   }
-  document.getElementById("input-text").style.color = col;
+
+  inputText.style.setProperty("-webkit-text-fill-color", col);
 }
 
-function buttonClick() {
-  count++;
-  if (count % 2 == 0) {
-    clearInterval(intervalID);
-  } else {
-    intervalID = setInterval(changeColor, 1000);
-  }
-}
-
-// add gradient
 // rename button
-// use data in button instead of function
+
+// З днем родини! (який був вчора)
