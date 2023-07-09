@@ -1,5 +1,5 @@
-let inputText = prompt("Введіть текст");
-document.getElementById("input-text").innerHTML = inputText;
+// let inputText = prompt("Введіть текст");
+// document.getElementById("input-text").innerHTML = inputText;
 
 let col;
 
@@ -8,15 +8,16 @@ function changeColor() {
   const computedStyle = window.getComputedStyle(inputText);
   const textColor = computedStyle.getPropertyValue("-webkit-text-fill-color");
 
-  if (textColor === "rgb(32, 30, 30)") {
+  if (textColor === "rgb(255, 255, 255)") {
     col = "transparent";
+    document.getElementById("button").innerHTML = "Не переливайся";
   } else {
-    col = "#201e1e";
+    col = "#FFFF";
+    document.getElementById("button").innerHTML = "Переливайся";
   }
 
   inputText.style.setProperty("-webkit-text-fill-color", col);
 }
 
-// rename button
 
 // З днем родини! (який був вчора)
