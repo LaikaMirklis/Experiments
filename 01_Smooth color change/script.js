@@ -1,5 +1,5 @@
-// let inputText = prompt("Введіть текст");
-// document.getElementById("input-text").innerHTML = inputText;
+let inputText = prompt("Введіть текст");
+document.getElementById("input-text").innerHTML = inputText;
 
 let col;
 
@@ -19,5 +19,3 @@ function changeColor() {
   inputText.style.setProperty("-webkit-text-fill-color", col);
 }
 
-
-// З днем родини! (який був вчора)

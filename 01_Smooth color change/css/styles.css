@@ -15,17 +15,14 @@ body {
 }
 
 h1 {
-  transition: color 10s ease;
   font-family: Alice;
-  font-size: 15vw;
+  font-size: 10vw;
 
-  background: linear-gradient(45deg, #e6a8b7, #eac4d6, #cbe5e8, #d2d8a3);
+  background: linear-gradient(45deg,  #e2849b, white, white, #89dee9);
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: #ffff;
-
-  background-size: 200% auto;
-
+  -webkit-text-fill-color: white;
+  background-size: 500% 500%;
   animation: textShine 5s ease-in-out infinite alternate;
 }
 
@@ -45,7 +42,10 @@ button:hover {
 }
 
 @keyframes textShine {
-  to {
-    background-position: 200% center;
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
   }
 }

@@ -7,8 +7,14 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <h1 id="input-text">Hello!</h1>
+    <h1 id="input-text" >...</h1>
+    <!-- З днем родини! (який був позавчора) -->
     <button id="button" onclick="changeColor()">Переливайся</button>
     <script src="script.js"></script>
   </body>
 </html>
+
+<!-- проблема, що залищилась: при натисканні на кнопку колір різко змінюється 
+і неможливо зробити плавний перехід (напр. transition: color 5s easy;)
+через  єб@ний -webkit-text-fill-color, а без нього я хз як градієнт,
+що рухається в тексті зробити -->
