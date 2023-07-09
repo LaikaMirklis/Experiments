@@ -1,0 +1,16 @@
+@font-face {
+  font-family: Alice;
+  src: local(Alice), url(../fonts/Alice-Regular.ttf);
+}
+
+h1 {
+  transition: color 1s ease;
+  font-family: Alice;
+  text-align: center;
+  font-size: 15vw;
+}
+
+button {
+  font-family: Alice;
+  align-items: center;
+}
