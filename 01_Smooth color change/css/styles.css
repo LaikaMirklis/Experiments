@@ -18,10 +18,11 @@ h1 {
   font-family: Alice;
   font-size: 10vw;
 
-  background: linear-gradient(45deg,  #e2849b, white, white, #89dee9);
+  background: linear-gradient(45deg, #e6a8b7, #eac4d6, #cbe5e8, #d2d8a3);
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: white;
+  color: white;
+  transition: color 5s linear;
   background-size: 500% 500%;
   animation: textShine 5s ease-in-out infinite alternate;
 }
