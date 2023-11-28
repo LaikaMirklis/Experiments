@@ -1,18 +1,17 @@
-function getImages(inputValue, successCallback) {
+function getImages(inputValue) {
   let URl = `https://jsonplaceholder.typicode.com/photos?albumId=${inputValue}`;
-
-  $.ajax(URl, {
-    success: function (data) {
-      successCallback(data);
-    },
+  const promise = axios.get(URl);
+  return promise.then((response) => {
+    return response.data;
   });
 }
 
 // ------------------ lessons code --------------------
-// function getImages(pageNumber, successCallback) {
-//   $.ajax(`https://repetitora.net/api/JS/Images?page=${pageNumber}`, {
-//     success: function (data) {
-//       successCallback(data);
-//     },
+// function getImages(pageNumber) {
+//   const promise = axios.get(
+//     `https://repetitora.net/api/JS/Images?page=${pageNumber}`
+//   );
+//   return promise.then((response) => {
+//     return response.data;
 //   });
 // }

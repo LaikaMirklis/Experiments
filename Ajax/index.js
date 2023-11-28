@@ -3,12 +3,13 @@ const deleteImagesButton = document.getElementById("deleteButton");
 const input = document.getElementById("input");
 
 getImagesButton.addEventListener("click", () => {
-  getImages(input.value, onDataReceived);
+  const promise = getImages(input.value);
+  promise.then(onDataReceived);
 });
 deleteImagesButton.addEventListener("click", deleteImages);
 
-function onDataReceived(data) {
-  data.forEach((user) => {
+function onDataReceived(array) {
+  array.forEach((user) => {
     const img = document.createElement("img");
     img.src = user.thumbnailUrl;
     document.getElementById("images").appendChild(img);
@@ -24,11 +25,12 @@ function deleteImages() {
 // const pageNumberEl = document.querySelector("#page-number");
 // const clickMeButton = document.querySelector("#click-me");
 // clickMeButton.addEventListener("click", () => {
-//   getImages(pageNumberEl.value, onDataReceived);
+//   const promise = getImages(pageNumberEl.value, onDataReceived);
+//   promise.then(onDataReceived);
 // });
 
-// function onDataReceived(data) {
-//   data.forEach((el) => {
+// function onDataReceived(array) {
+//   array.forEach((el) => {
 //     const img = document.createElement("img");
 //     img.src = el.thumbnail;
 //     document.querySelector("#result").appendChild(img);
