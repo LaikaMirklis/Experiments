@@ -29,7 +29,7 @@ function onImagesReceived(array) {
 function onTasksReceived(tasks) {
   tasks.forEach((task) => {
     const li = document.createElement("li");
-    li.innerHTML = task;
+    li.innerHTML = task.title;
     document.querySelector("#tasks-result").appendChild(li);
   });
 }
