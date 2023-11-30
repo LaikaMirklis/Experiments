@@ -17,9 +17,10 @@ function getTasks() {
 }
 
 function createTask(title) {
-  const promise = axios.post(
-    `https://repetitora.net/api/JS/Tasks?widgetId=5345235&title=${title}`
-  );
+  const promise = axios.post(`https://repetitora.net/api/JS/Tasks`, {
+    widgetId: 5345235,
+    title: title,
+  });
   return promise.then((response) => {
     return response.data;
   });

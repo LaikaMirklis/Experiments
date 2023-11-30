@@ -18,7 +18,6 @@ getTasksButton.addEventListener("click", () => {
 });
 
 createTask("learn JS").then((data) => {
-  debugger;
   console.log(data);
 });
 
