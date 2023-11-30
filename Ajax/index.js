@@ -1,14 +1,33 @@
-const getImagesButton = document.getElementById("getButton");
+const imagesInput = document.getElementById("imagesInput");
+const getImagesButton = document.getElementById("getImagesButton");
 const deleteImagesButton = document.getElementById("deleteButton");
-const input = document.getElementById("input");
+
+const tasksInput = document.getElementById("tasksInput");
+const createTaskButton = document.getElementById("createTaskButton");
+const getTasksButton = document.getElementById("getTasksButton");
 
 getImagesButton.addEventListener("click", () => {
-  const promise = getImages(input.value);
-  promise.then(onDataReceived);
+  const promise = getImages(imagesInput.value);
+  promise.then(onImagesReceived);
 });
 deleteImagesButton.addEventListener("click", deleteImages);
 
-function onDataReceived(array) {
+getTasksButton.addEventListener("click", () => {
+  const promise = getTask();
+  promise.then(onTasksReceived);
+});
+
+createTask("learn JS").then((data) => {
+  debugger;
+  console.log(data);
+});
+
+// getTasksButton.createTaskButton("click", () => {
+//   const promise = createTask(title);
+//   promise.then(onTasksReceived);
+// });
+
+function onImagesReceived(array) {
   array.forEach((user) => {
     const img = document.createElement("img");
     img.src = user.thumbnailUrl;
@@ -20,19 +39,10 @@ function deleteImages() {
   document.getElementById("images").innerHTML = "";
 }
 
-// ------------------ lessons code --------------------
-// const resultBlock = document.querySelector("#result");
-// const pageNumberEl = document.querySelector("#page-number");
-// const clickMeButton = document.querySelector("#click-me");
-// clickMeButton.addEventListener("click", () => {
-//   const promise = getImages(pageNumberEl.value, onDataReceived);
-//   promise.then(onDataReceived);
-// });
-
-// function onDataReceived(array) {
-//   array.forEach((el) => {
-//     const img = document.createElement("img");
-//     img.src = el.thumbnail;
-//     document.querySelector("#result").appendChild(img);
-//   });
-// }
+function onTasksReceived(tasks) {
+  tasks.forEach((task) => {
+    const li = document.createElement("li");
+    li.innerHTML = task.title;
+    document.getElementById("tasks").appendChild(li);
+  });
+}

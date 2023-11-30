@@ -7,24 +7,24 @@
   </head>
   <body>
     <div>
-      <input type="number" id="input" placeholder="Write albumId" />
-      <button id="getButton">Get images</button>
+      <input type="number" id="imagesInput" placeholder="Write albumId" />
+      <button id="getImagesButton">Get images</button>
       <button id="deleteButton">Delete images</button>
     </div>
+    <div>
+      <input id="tasksInput" placeholder="Write task" />
+      <button id="createTaskButton">Create task</button>
+      <button id="getTasksButton">Get tasks</button>
+    </div>
+
     <div id="images"></div>
+    <div id="tasks"></div>
 
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
-    <script src="index.js"></script>
+
     <script src="service.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
 
-<!-- ------------------ lessons code -------------------- -->
-<!-- <button id="click-me">ClickMe</button>
-номер страницы: <input type="text" value="" id="page-number" />
-
-<div id="result"></div>
-
-<script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
-<script src="index.js"></script>
-<script src="service.js"></script> -->
+<!-- add input checkbox -->
