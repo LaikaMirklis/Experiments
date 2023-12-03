@@ -21,3 +21,20 @@ function createTask(taskTitle) {
     return response.data.tasks;
   });
 }
+
+function deleteTask(taskId) {
+  let URl = `http://127.0.0.1:5000/api/tasks/${taskId}`;
+  const promise = axios.delete(URl);
+  return promise.then((response) => {
+    return response.data.tasks;
+  });
+}
+
+function updateTask(taskId, taskTitle, taskDone) {
+  let URl = `http://127.0.0.1:5000/api/tasks/${taskId}`;
+  let secondParameter = taskTitle ? { title: taskTitle } : { done: taskDone };
+  const promise = axios.put(URl, secondParameter);
+  return promise.then((response) => {
+    return response.data.tasks;
+  });
+}

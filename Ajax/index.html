@@ -3,28 +3,137 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div>
-      <input type="number" id="imagesInput" placeholder="Write albumId" />
-      <button id="getImagesButton">Get images</button>
-      <button id="deleteButton">Delete images</button>
-    </div>
-    <div>
-      <input id="tasksInput" placeholder="Write task" />
-      <button id="createTaskButton">Create task</button>
-      <button id="getTasksButton">Get tasks</button>
-    </div>
+    <title>Your Page Title</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    <div id="images"></div>
-    <div id="tasks"></div>
+      main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      input,
+      button {
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+
+      button {
+        background-color: #3498db;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      #images,
+      #tasks {
+        padding: 0;
+        margin: 0;
+      }
+      #tasks {
+        list-style: none;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        padding-top: 20px;
+      }
+
+      img {
+        height: 20px;
+      }
+
+      #tasks li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+      }
+
+      #tasks img {
+        width: 20px;
+        margin-right: 10px;
+        align-self: center;
+      }
+
+      #tasks div {
+        display: flex;
+        align-items: center;
+        margin: 0;
+      }
+
+      #tasks input {
+        margin: 0;
+        padding: 0;
+      }
+
+      #tasks label {
+        margin-left: 10px;
+        display: flex;
+        align-items: center;
+      }
+
+      #tasks label input {
+        font-size: 16px;
+      }
+      #tasks label img {
+        height: 24px;
+        width: 24px;
+        padding-left: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <section>
+        <h2>Image Section</h2>
+        <div>
+          <label for="imagesInput">Album ID:</label>
+          <input type="number" id="imagesInput" placeholder="Write albumId" />
+          <button id="getImagesButton">Get Images</button>
+          <button id="deleteButton">Delete Images</button>
+        </div>
+        <div id="images"></div>
+      </section>
+
+      <section>
+        <h2>Task Section</h2>
+        <div>
+          <label for="tasksInput">Task:</label>
+          <input id="tasksInput" placeholder="Write task" />
+          <button id="createTaskButton">Create Task</button>
+          <button id="getTasksButton">Get Tasks</button>
+        </div>
+        <ul id="tasks"></ul>
+      </section>
+    </main>
 
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
-
     <script src="service.js"></script>
     <script src="index.js"></script>
   </body>
 </html>
-
-<!-- add input checkbox -->

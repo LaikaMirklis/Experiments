@@ -8,7 +8,7 @@ tasks = [
     {
         'id': 1,
         'title': 'Buy groceries',
-        'done': False
+        'done': True
     },
     {
         'id': 2,
@@ -19,7 +19,7 @@ tasks = [
 
 # Get all tasks
 @app.route('/api/tasks', methods=['GET'])
-def get_tasks():
+def get_tasks(): 
     return jsonify({'tasks': tasks})
 
 # Get a specific task

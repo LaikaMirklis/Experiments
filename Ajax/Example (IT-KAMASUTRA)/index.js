@@ -3,6 +3,8 @@ const pageNumberEl = document.querySelector("#page-number");
 const clickMeButton = document.querySelector("#click-me");
 const getTasksButton = document.querySelector("#get-tasks");
 
+createTask("learn HTML");
+
 clickMeButton.addEventListener("click", () => {
   const promise = getImages(pageNumberEl.value);
   promise.then(onImagesReceived);
@@ -11,11 +13,6 @@ clickMeButton.addEventListener("click", () => {
 getTasksButton.addEventListener("click", () => {
   const promise = getTasks();
   promise.then(onTasksReceived);
-});
-
-createTask("learn JS").then((data) => {
-  debugger;
-  console.log(data);
 });
 
 function onImagesReceived(array) {
@@ -27,9 +24,13 @@ function onImagesReceived(array) {
 }
 
 function onTasksReceived(tasks) {
+  const result = document.querySelector("#tasks-result");
+  result.innerHTML = "";
+
   tasks.forEach((task) => {
     const li = document.createElement("li");
     li.innerHTML = task.title;
-    document.querySelector("#tasks-result").appendChild(li);
+    li.dataset.id = task.id;
+    result.appendChild(li);
   });
 }

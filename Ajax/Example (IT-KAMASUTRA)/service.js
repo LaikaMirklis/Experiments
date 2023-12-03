@@ -25,3 +25,22 @@ function createTask(title) {
     return response.data;
   });
 }
+
+function updateTask(title) {
+  const promise = axios.post(
+    `https://repetitora.net/api/JS/Tasks?widgetId=5345235&taskId=${id}`
+  );
+  return promise.then((response) => {
+    return response.data;
+  });
+}
+
+function deleteTask(id) {
+  const promise = axios.post(`https://repetitora.net/api/JS/Tasks`, {
+    widgetId: 5345235,
+    taskId: id,
+  });
+  return promise.then((response) => {
+    return response.data;
+  });
+}
