@@ -26,20 +26,26 @@ function createTask(title) {
   });
 }
 
-function updateTask(title) {
-  const promise = axios.post(
-    `https://repetitora.net/api/JS/Tasks?widgetId=5345235&taskId=${id}`
-  );
+function updateTask(title, id, done) {
+  const promise = axios({
+    method: "put",
+    url: "https://repetitora.net/api/JS/Tasks",
+    data: {
+      widgetId: 5345235,
+      title: title,
+      taskId: id,
+      done: done,
+    },
+  });
   return promise.then((response) => {
     return response.data;
   });
 }
 
 function deleteTask(id) {
-  const promise = axios.post(`https://repetitora.net/api/JS/Tasks`, {
-    widgetId: 5345235,
-    taskId: id,
-  });
+  const promise = axios.delete(
+    `https://repetitora.net/api/JS/Tasks?widgetId=5345235&taskId=${id}`
+  );
   return promise.then((response) => {
     return response.data;
   });

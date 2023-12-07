@@ -19,6 +19,7 @@ getTasksButton.addEventListener("click", () => {
 
 createTaskButton.addEventListener("click", () => {
   const promise = createTask(tasksInput.value);
+  tasksInput.value = "";
   promise.then(() => {
     const promise = getTask();
     promise.then(onTasksReceived);
@@ -97,9 +98,6 @@ function taskUpdate(e) {
     promise.then(onTasksReceived);
   });
 }
-
-// тикати на таску - в інпут з'являється текст, чи лейбл стає інпут і з'являється
-// кнопка  оновити / чи  зображення чи креате таск змінює текст
 
 function taskCheck(e) {
   let targetId = e.target.id;
