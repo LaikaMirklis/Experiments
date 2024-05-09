@@ -1,39 +1,37 @@
-function getListOfWords() {
-  const text = document.getElementById("text").value;
-  let text1 = text
-    .toLowerCase()
-    .replace(/,/g, "")
-    .replace(/\./g, "")
-    .replace(/\n/g, " "); //removes , and .
-  let splitedText = text1.split(" ");
-  let numberOfWords = {};
-  splitedText.forEach((world) => {
-    if (numberOfWords.hasOwnProperty(world)) {
-      numberOfWords[world] += 1;
-    } else {
-      numberOfWords[world] = 1;
-    }
+function compareTexts(leftId, rightId) {
+  let leftArray = getListOfWords(leftId);
+  let rightArray = getListOfWords(rightId);
+  let sameWords = [];
+  leftArray.forEach((word) => {
+    if (rightArray.includes(word)) sameWords.push(word);
   });
-  console.log(numberOfWords);
-
-  let table = document.getElementById("table");
-
-  for (const [world, number] of Object.entries(numberOfWords)) {
-    let tr = document.createElement("tr");
-
-    let td1 = document.createElement("td");
-    td1.textContent = world;
-    tr.appendChild(td1);
-
-    let td2 = document.createElement("td");
-    td2.textContent = number;
-    tr.appendChild(td2);
-
-    table.appendChild(tr);
-  }
+  console.log(sameWords);
+  console.log(sameWords.length);
 }
 
-// trim
+function getListOfWords(id) {
+  const text = document.getElementById(id).value;
+  let changedText = text
+    .toLowerCase()
+    .replace(/[“”"'\\()\/?–+;:_&%$£0-9,.\-]/g, "") //~
+    .replace(/\n/g, " "); //removes , and .
+  let wordsArray = changedText.split(" ");
+  let numberOfWords = {};
+  let wordsList = [];
+  wordsArray.forEach((word) => {
+    if (numberOfWords.hasOwnProperty(word)) {
+      numberOfWords[word] += 1;
+    } else {
+      if (word != "") {
+        numberOfWords[word] = 1;
+        wordsList.push(word);
+      }
+    }
+  });
+  // delete numberOfWords[""];
+  // console.log(numberOfWords);
+  return wordsList;
+}
 
 // script to delete markers in page (https://zno.osvita.ua/master/english/270/)
 let markers = document.getElementsByClassName("marker");

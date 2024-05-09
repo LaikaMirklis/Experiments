@@ -1,8 +1,18 @@
 .container {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 textarea {
   min-height: 50vh;
-  min-width: 50vw;
+  min-width: 30vw;
+  margin: 20px;
+}
+
+.buttonWrapper {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

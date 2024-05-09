@@ -10,15 +10,21 @@
     <!-- <h1></h1> -->
     <div class="container">
       <div>
-        <textarea id="text" placeholder="Enter the text..."></textarea>
-        <div>
-          <button id="button" onclick="getListOfWords()">
-            Отримати список слів
-          </button>
-        </div>
+        <textarea id="leftTextarea" placeholder="Enter the text..."></textarea>
       </div>
-      <table id="table"></table>
+      <div>
+        <textarea id="rightTextarea" placeholder="Enter the text..."></textarea>
+      </div>
     </div>
+    <div class="buttonWrapper">
+      <button
+        id="button"
+        onclick="compareTexts('leftTextarea', 'rightTextarea')"
+      >
+        Отримати список однакових слів
+      </button>
+    </div>
+    <table id="table"></table>
     <script src="script.js"></script>
   </body>
 </html>
