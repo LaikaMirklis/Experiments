@@ -1,20 +1,21 @@
 function compareTexts(leftId, rightId) {
   let leftArray = getListOfWords(leftId);
-  let rightArray = getListOfWords(rightId);
-  let sameWords = [];
-  leftArray.forEach((word) => {
-    if (rightArray.includes(word)) sameWords.push(word);
-  });
-  console.log(sameWords);
-  console.log(sameWords.length);
+  document.getElementById(rightId).value = leftArray;
+  // let rightArray = getListOfWords(rightId);
+  // let sameWords = [];
+  // leftArray.forEach((word) => {
+  //   if (rightArray.includes(word)) sameWords.push(word);
+  // });
+  // console.log(sameWords);
+  // console.log(sameWords.length);
 }
 
 function getListOfWords(id) {
   const text = document.getElementById(id).value;
   let changedText = text
     .toLowerCase()
-    .replace(/[“”"'\\()\/?–+;:_&%$£0-9,.\-]/g, "") //~
-    .replace(/\n/g, " "); //removes , and .
+    .replace(/[“”"'\\()\/?–+;:_&%$£0-9~,.\-]/g, "") //~
+    .replace(/ ‘\b|\n|’ /g, " ");
   let wordsArray = changedText.split(" ");
   let numberOfWords = {};
   let wordsList = [];
@@ -30,7 +31,7 @@ function getListOfWords(id) {
   });
   // delete numberOfWords[""];
   // console.log(numberOfWords);
-  return wordsList;
+  return changedText;
 }
 
 // script to delete markers in page (https://zno.osvita.ua/master/english/270/)
