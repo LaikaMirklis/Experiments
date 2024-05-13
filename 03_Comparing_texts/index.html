@@ -7,24 +7,30 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <!-- <h1></h1> -->
     <div class="container">
-      <div>
-        <textarea id="leftTextarea" placeholder="Enter the text..."></textarea>
+      <div class="textareaContainer">
+        <div>
+          <textarea
+            id="leftTextarea"
+            placeholder="Enter the text..."
+          ></textarea>
+        </div>
+        <div>
+          <textarea
+            id="rightTextarea"
+            placeholder="Enter the text..."
+          ></textarea>
+        </div>
       </div>
-      <div>
-        <textarea id="rightTextarea" placeholder="Enter the text..."></textarea>
+      <div class="buttonWrapper">
+        <button onclick="formatText('leftTextarea', 'rightTextarea')">
+          Format text
+        </button>
+        <button onclick="compareWords()">Get a list of identical words</button>
       </div>
+      <table id="table"></table>
     </div>
-    <div class="buttonWrapper">
-      <button
-        id="button"
-        onclick="compareTexts('leftTextarea', 'rightTextarea')"
-      >
-        Отримати список однакових слів
-      </button>
-    </div>
-    <table id="table"></table>
     <script src="script.js"></script>
+    <script src="examText.js"></script>
   </body>
 </html>
